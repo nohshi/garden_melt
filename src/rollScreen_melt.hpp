@@ -1,8 +1,9 @@
+#pragma once
 //
 //  rollScreen_melt.hpp
 //  rollScreenMelt
 //
-//  Created by è—¤ç”°ã€€æ­è¼” on 2019/05/30.
+//  Created by “¡“c@‹±•ã on 2019/05/30.
 //
 
 #ifndef rollScreen_melt_hpp
@@ -13,33 +14,29 @@
 
 class RollScreen_melt {
 public:
-    RollScreen_melt();
-    void init(const int &_width, const int &_height);
-    
-    void begin(); //begin()ã¨end()ã§æŒŸã‚“ã ã¨ã“ã‚ã«æç”»ã™ã‚‹ã¨æ›¸ãè¾¼ã‚ã‚‹
-    void end();   //
-    float getScreenPositionX(const float &_posX);
-    void clear();
-    void drawIn(const function<void()> &_draw); //drawé–¢æ•°ã‚’å—ã‘å–ã£ã¦fboã«æ›¸ãè¾¼ã‚€ã‚„ã¤
-    
-    void update(); //æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã¶
-    void draw(const float &_width, const float &_height);
-    void drawRectFrame(const float &_width, const float &_height); //fbo(å››è§’)ã®æ ã‚’è¡¨ç¤º(ãƒ‡ãƒãƒƒã‚°ç”¨)
-    void swapBuffers(); //draw()ã®å¾Œã«æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã¶
-    
-    int screenWidth;
-    float scrollingX = 0;
-    ofFloatColor backgroundColor;
-    
-    ofFbo fbFbo[2];
-    ofShader shader;
-    
-    //----------------------ã“ã“ã®guiã†ã¾ãå‹•ã‹ãªã„å•é¡Œ....
-    //ofxPanel gui;
-    //ofxFloatSlider g_meltVal, g_fade, g_speed;
-    float g_meltVal, g_fade, g_speed;
-    //void drawGui();
-    
+	RollScreen_melt();
+	void init(const int &_width, const int &_height);
+
+	void begin(); //begin()‚Æend()‚Å‹²‚ñ‚¾‚Æ‚±‚ë‚É•`‰æ‚·‚é‚Æ‘‚«‚ß‚é
+	void end();   //
+	float getScreenPositionX(const float &_posX);
+	void clear();
+	void drawIn(const function<void()> &_draw); //drawŠÖ”‚ğó‚¯æ‚Á‚Äfbo‚É‘‚«‚Ş‚â‚Â
+
+	void update(); //–ˆƒtƒŒ[ƒ€ŒÄ‚Ô
+	void draw(const float &_width, const float &_height);
+	void drawRectFrame(const float &_width, const float &_height); //fbo(lŠp)‚Ì˜g‚ğ•\¦(ƒfƒoƒbƒO—p)
+	void swapBuffers(); //draw()‚ÌŒã‚É–ˆƒtƒŒ[ƒ€ŒÄ‚Ô
+
+	int screenWidth;
+	float scrollingX = 0;
+	ofFloatColor backgroundColor;
+
+	ofFbo fbFbo[2];
+	ofShader shader;
+
+	float g_meltVal, g_fade, g_speed;
+
 };
 
 #endif /* rollScreen_melt_hpp */

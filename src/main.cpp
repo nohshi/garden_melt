@@ -2,39 +2,39 @@
 #include "ofApp.h"
 
 //========================================================================
-int main( ){
-    ofGLFWWindowSettings settings;
-    settings.setGLVersion(4,1);
-    
-    //GUIãªã©ã‚’è¡¨ç¤ºã™ã‚‹ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦
-    settings.setSize(1280, 512 + 50); //50ã¯ä¸‹ã®ä½™ç™½
-    settings.setPosition(ofVec2f(400,400));
-    settings.resizable = true;
-    shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
-    mainWindow->setVerticalSync(false);
-    
-    //å¤–éƒ¨ãƒ¢ãƒ‹ã‚¿ãƒ¼ã«è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚µãƒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦A
-    settings.shareContextWith = mainWindow; //fboã‚’å…±æœ‰ã™ã‚‹ãŸã‚ãƒã‚¤ãƒ³ã‚¿ã‚’å…±æœ‰
-    settings.setSize(1280, 1024);
-    settings.setPosition(ofVec2f(0,50));
-    shared_ptr<ofAppBaseWindow> displayWindow_A = ofCreateWindow(settings);
-    displayWindow_A->setVerticalSync(false);
-    displayWindow_A->setWindowTitle("A");
-    
-    //å¤–éƒ¨ãƒ¢ãƒ‹ã‚¿ãƒ¼ã«è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚µãƒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦B
-    settings.shareContextWith = mainWindow;  //fboã‚’å…±æœ‰ã™ã‚‹ãŸã‚ãƒã‚¤ãƒ³ã‚¿ã‚’å…±æœ‰
-    settings.setSize(1280, 1024);
-    settings.setPosition(ofVec2f(640,50));
-    shared_ptr<ofAppBaseWindow> displayWindow_B = ofCreateWindow(settings);
-    displayWindow_B->setVerticalSync(false);
-    displayWindow_B->setWindowTitle("B");
-    
-    //ãƒ¡ã‚¤ãƒ³ä»¥å¤–ã®2ã¤ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’è¡¨ç¤ºå¯èƒ½ã«ã™ã‚‹
-    shared_ptr<ofApp> mainApp(new ofApp);
-    ofAddListener(displayWindow_A->events().draw,mainApp.get(),&ofApp::drawDisplay_A);
-    ofAddListener(displayWindow_B->events().draw,mainApp.get(),&ofApp::drawDisplay_B);
-    
-    //ãƒ«ãƒ¼ãƒ—ã‚¹ã‚¿ãƒ¼ãƒˆ
-    ofRunApp(mainWindow, mainApp);
-    ofRunMainLoop();
+int main() {
+	ofGLFWWindowSettings settings;
+	settings.setGLVersion(4, 1);
+
+	//GUI‚È‚Ç‚ğ•\¦‚·‚éƒƒCƒ“ƒEƒBƒ“ƒhƒE
+	settings.setSize(1280, 512 + 50); //50‚Í‰º‚Ì—]”’
+	settings.setPosition(ofVec2f(400, 400));
+	settings.resizable = true;
+	shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
+	mainWindow->setVerticalSync(false);
+
+	//ŠO•”ƒ‚ƒjƒ^[‚É•\¦‚·‚é‚½‚ß‚ÌƒTƒuƒEƒBƒ“ƒhƒEA
+	settings.shareContextWith = mainWindow; //fbo‚ğ‹¤—L‚·‚é‚½‚ßƒ|ƒCƒ“ƒ^‚ğ‹¤—L
+	settings.setSize(1280, 1024);
+	settings.setPosition(ofVec2f(0, 50));
+	shared_ptr<ofAppBaseWindow> displayWindow_A = ofCreateWindow(settings);
+	displayWindow_A->setVerticalSync(false);
+	displayWindow_A->setWindowTitle("A");
+
+	//ŠO•”ƒ‚ƒjƒ^[‚É•\¦‚·‚é‚½‚ß‚ÌƒTƒuƒEƒBƒ“ƒhƒEB
+	settings.shareContextWith = mainWindow;  //fbo‚ğ‹¤—L‚·‚é‚½‚ßƒ|ƒCƒ“ƒ^‚ğ‹¤—L
+	settings.setSize(1280, 1024);
+	settings.setPosition(ofVec2f(640, 50));
+	shared_ptr<ofAppBaseWindow> displayWindow_B = ofCreateWindow(settings);
+	displayWindow_B->setVerticalSync(false);
+	displayWindow_B->setWindowTitle("B");
+
+	//ƒƒCƒ“ˆÈŠO‚Ì2‚Â‚ÌƒEƒBƒ“ƒhƒE‚ğ•\¦‰Â”\‚É‚·‚é
+	shared_ptr<ofApp> mainApp(new ofApp);
+	ofAddListener(displayWindow_A->events().draw, mainApp.get(), &ofApp::drawDisplay_A);
+	ofAddListener(displayWindow_B->events().draw, mainApp.get(), &ofApp::drawDisplay_B);
+
+	//ƒ‹[ƒvƒXƒ^[ƒg
+	ofRunApp(mainWindow, mainApp);
+	ofRunMainLoop();
 }

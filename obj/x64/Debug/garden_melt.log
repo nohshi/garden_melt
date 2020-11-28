@@ -1,0 +1,76 @@
+﻿  main.cpp
+  bug.cpp
+  bug_leader.cpp
+  ofApp.cpp
+  rollScreen_melt.cpp
+  pointsRenderer.cpp
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\utils\pointsrenderer.cpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug.cpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\utils\ofutils.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\rollScreen_melt.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\objects\bug_leader.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています src\utils\pointsRenderer.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug_leader.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\main.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\utils\pointsrenderer.cpp(67): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+c:\users\fujita\documents\openframeworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\src\objects\bug_leader.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。 (ソース ファイルをコンパイルしています src\ofApp.cpp)
+  garden_melt.vcxproj -> C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\garden_melt_debug.exe
+  
+  	                   2	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\x64\
+  	  *EXTRA File 		 6942208	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\FreeImage.dll
+  
+  	                   1	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\x64\
+  	  *EXTRA File 		 1503232	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\fmodex64.dll
+  	  *EXTRA File 		 1552384	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\fmodexL64.dll

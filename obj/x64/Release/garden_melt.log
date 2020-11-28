@@ -1,0 +1,10 @@
+﻿     ライブラリ bin\garden_melt.lib とオブジェクト bin\garden_melt.exp を作成中
+  LINK : /LTCG が指定されましたが、コードの生成は必要ありません。リンク コマンド ラインから /LTCG を削除し、リンカーの性能を改善してください。
+  garden_melt.vcxproj -> C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\garden_melt.exe
+  
+  	                   2	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\x64\
+  	  *EXTRA File 		 6942208	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\FreeImage.dll
+  
+  	                   1	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\x64\
+  	  *EXTRA File 		 1503232	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\fmodex64.dll
+  	  *EXTRA File 		 1552384	C:\Users\fujita\Documents\openFrameworks\of_v0.11.0_vs2017_release\apps\hobbies\garden_melt\bin\fmodexL64.dll

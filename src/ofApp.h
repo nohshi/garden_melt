@@ -10,57 +10,57 @@
 
 #include "ofxGui.h"
 
-class ofApp : public ofBaseApp{
-    
+class ofApp : public ofBaseApp {
+
 public:
-    void setup(); //åˆæœŸåŒ–
-    void update(); //æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã°ã‚Œã‚‹ã‚„ã¤
-    void draw(); //æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã°ã‚Œã‚‹ã‚„ã¤ã€ãƒ¡ã‚¤ãƒ³ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã¸ã®æç”»ç”¨
-    
-    void drawDisplay_A(ofEventArgs & args); //ã‚µãƒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦Aã«æç”»ã™ã‚‹
-    void drawDisplay_B(ofEventArgs & args); //ã‚µãƒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦Bã«æç”»ã™ã‚‹
-    
-    //ä»¥ä¸‹ãƒã‚¦ã‚¹ã€ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°
-    void keyPressed(int key);
-    void keyReleased(int key);
-    void mouseScrolled(int x, int y, float scrollX, float scrollY);
-    void mouseMoved(int x, int y );
-    void mouseDragged(int x, int y, int button);
-    void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
-    void mouseEntered(int x, int y);
-    void mouseExited(int x, int y);
-    void windowResized(int w, int h);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
-    
-    int WIDTH, HEIGHT, wideWIDTH; //WIDTH,HEIGHTã¯ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºwideWIDTHã¯ãƒ«ãƒ¼ãƒ—ã‚¹ã‚¯ãƒªãƒ¼ãƒ³æœ¬ä½“ã®å¤§ãã•
-    int currentHEIGHT; //mainã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã®ä»Šã®ç¸¦å¹…
-    
-    RollScreen_melt rollScreen; //ãƒ­ãƒ¼ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
-    PointsRenderer pRenderer; //ãƒã‚¤ãƒ³ãƒˆã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ
-    
-    //---------------æ¤ç‰©ç”¨ã®ã‚¤ãƒ™ãƒ³ãƒˆã¨ã‹
-    void bear(Bug & _bug); //æãŒç”Ÿã¾ã‚Œã‚‹æ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆ
-    deque<Bug> bugs; //æã®é…åˆ—
-    deque<Flower> flowers; //èŠ±ã®é…åˆ—
-    void bloom(Bug & _bug); //èŠ±ãŒå’²ãæ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆ
-    
-    //--------------------------------GUIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
-    //---------------æ¤ç‰©é–¢ä¿‚ã®GUI
-    ofxPanel plantsGui;
-    ofxIntSlider g_lifeSpan; //æã®å¯¿å‘½ é•·ã•ã«å½±éŸ¿
-    ofxFloatSlider g_initialRadius; //åˆæœŸã®æã®åŠå¾„
-    ofxFloatColorSlider g_plantColor; //è‰²
-    ofxIntSlider g_limit; //bugã®æ•°ã®ä¸Šé™
-    
-    //--------ã»ã‚“ã¨ã¯ã‚„ã‚ŠãŸããªã„ã‘ã©rollScreenã®ä¸­ã®ofxGuiãŒã†ã¾ãå‹•ã‹ãªã„ã‹ã‚‰ç„¡ç†ã‚„ã‚Šã“ã£ã¡ã§å‘¼ã³å‡ºã™
-    ofxPanel screenGui;
-    ofxFloatSlider g_meltVal, g_fade, g_speed; //æº¶ã‘å…·åˆã€ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆå…·åˆã€å‹•ãã‚¹ãƒ”ãƒ¼ãƒ‰
-    ofxFloatSlider g_offSetX_A, g_offSetX_B; //ã¤ã„ã§ã«ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³å¯¾å¿œç”¨ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤
-    ofxFloatSlider g_screenAlph_A, g_screenAlph_B; //ãã‚Œãã‚Œã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã®ã‚¢ãƒ«ãƒ•ã‚¡å€¤
-    
-    //--------------åˆ¥ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã«æ¸¡ã™ç”¨ã®fbo
-    ofFbo displayFbo[2];
+	void setup(); //‰Šú‰»
+	void update(); //–ˆƒtƒŒ[ƒ€ŒÄ‚Î‚ê‚é‚â‚Â
+	void draw(); //–ˆƒtƒŒ[ƒ€ŒÄ‚Î‚ê‚é‚â‚ÂAƒƒCƒ“ƒfƒBƒXƒvƒŒƒC‚Ö‚Ì•`‰æ—p
+
+	void drawDisplay_A(ofEventArgs & args); //ƒTƒuƒEƒBƒ“ƒhƒEA‚É•`‰æ‚·‚é
+	void drawDisplay_B(ofEventArgs & args); //ƒTƒuƒEƒBƒ“ƒhƒEB‚É•`‰æ‚·‚é
+
+	//ˆÈ‰ºƒ}ƒEƒXAƒL[ƒCƒxƒ“ƒgŠÖ”
+	void keyPressed(int key);
+	void keyReleased(int key);
+	void mouseScrolled(int x, int y, float scrollX, float scrollY);
+	void mouseMoved(int x, int y);
+	void mouseDragged(int x, int y, int button);
+	void mousePressed(int x, int y, int button);
+	void mouseReleased(int x, int y, int button);
+	void mouseEntered(int x, int y);
+	void mouseExited(int x, int y);
+	void windowResized(int w, int h);
+	void dragEvent(ofDragInfo dragInfo);
+	void gotMessage(ofMessage msg);
+
+	int WIDTH, HEIGHT, wideWIDTH; //WIDTH,HEIGHT‚ÍƒEƒCƒ“ƒhƒEƒTƒCƒYwideWIDTH‚Íƒ‹[ƒvƒXƒNƒŠ[ƒ“–{‘Ì‚Ì‘å‚«‚³
+	int currentHEIGHT; //mainƒEƒCƒ“ƒhƒE‚ÌƒXƒNƒŠ[ƒ“‚Ì¡‚Ìc•
+
+	RollScreen_melt rollScreen; //ƒ[ƒ‹ƒXƒNƒŠ[ƒ“
+	PointsRenderer pRenderer; //ƒ|ƒCƒ“ƒgƒXƒvƒ‰ƒCƒg
+
+	//---------------A•¨—p‚ÌƒCƒxƒ“ƒg‚Æ‚©
+	void bear(Bug & _bug); //}‚ª¶‚Ü‚ê‚é‚ÌƒCƒxƒ“ƒg
+	deque<Bug> bugs; //}‚Ì”z—ñ
+	deque<Flower> flowers; //‰Ô‚Ì”z—ñ
+	void bloom(Bug & _bug); //‰Ô‚ªç‚­‚ÌƒCƒxƒ“ƒg
+
+	//--------------------------------GUIƒIƒuƒWƒFƒNƒg
+	//---------------A•¨ŠÖŒW‚ÌGUI
+	ofxPanel plantsGui;
+	ofxIntSlider g_lifeSpan; //}‚Ìõ–½ ’·‚³‚É‰e‹¿
+	ofxFloatSlider g_initialRadius; //‰Šú‚Ì}‚Ì”¼Œa
+	ofxFloatColorSlider g_plantColor; //F
+	ofxIntSlider g_limit; //bug‚Ì”‚ÌãŒÀ
+
+	//--------‚Ù‚ñ‚Æ‚Í‚â‚è‚½‚­‚È‚¢‚¯‚ÇrollScreen‚Ì’†‚ÌofxGui‚ª‚¤‚Ü‚­“®‚©‚È‚¢‚©‚ç–³—‚â‚è‚±‚Á‚¿‚ÅŒÄ‚Ño‚·
+	ofxPanel screenGui;
+	ofxFloatSlider g_meltVal, g_fade, g_speed; //—n‚¯‹ï‡AƒtƒF[ƒhƒAƒEƒg‹ï‡A“®‚­ƒXƒs[ƒh
+	ofxFloatSlider g_offSetX_A, g_offSetX_B; //‚Â‚¢‚Å‚ÉƒvƒƒWƒFƒNƒVƒ‡ƒ“‘Î‰—p‚ÌƒXƒNƒŠ[ƒ“‚ÌƒIƒtƒZƒbƒg’l
+	ofxFloatSlider g_screenAlph_A, g_screenAlph_B; //‚»‚ê‚¼‚ê‚ÌƒXƒNƒŠ[ƒ“‚ÌƒAƒ‹ƒtƒ@’l
+
+	//--------------•ÊƒXƒNƒŠ[ƒ“‚É“n‚·—p‚Ìfbo
+	ofFbo displayFbo[2];
 
 };

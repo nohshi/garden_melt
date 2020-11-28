@@ -1,265 +1,258 @@
 #include "ofApp.h"
 
-//--------------------------------------------------------------
-void ofApp::setup(){
-    ofSetBackgroundColor(255);
-    ofEnableAntiAliasing();
-    ofSetFrameRate(30);
-    
-    //-------------------------------ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚µã‚¤ã‚ºç­‰ã®åˆæœŸåŒ–
-    WIDTH = 1280;
-    HEIGHT = 1024;
-    currentHEIGHT = ofGetHeight() - 50;
-    wideWIDTH = WIDTH*2;
-    rollScreen.init(wideWIDTH, HEIGHT);
-    
-    //-------------------------------ãŠèŠ±ç”¨ã‚¤ãƒ™ãƒ³ãƒˆã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
-    ofAddListener(Bug::birth, this, &ofApp::bear );
-    ofAddListener(Bug::bloom, this, &ofApp::bloom);
-    
-    //-------------------------------æ¤ç‰©é–¢ä¿‚ã®GUIã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
-    plantsGui.setup();
-    plantsGui.setName("plants");
-    plantsGui.add(g_lifeSpan.setup("lifeSpan", 450, 100, 2000));
-    plantsGui.add(g_initialRadius.setup("radius", 45, 5, 200));
-    plantsGui.add(g_plantColor.setup("color", ofFloatColor(1), ofFloatColor(0), ofFloatColor(1)));
-    plantsGui.add(g_limit.setup("limit", 500, 0, 2000));
-    plantsGui.setPosition(240, 120);
-    //-------------------------------ã‚¹ã‚¯ãƒªãƒ¼ãƒ³é–¢ä¿‚ã®GUIã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
-    screenGui.setup();
-    screenGui.setName("screen");
-    screenGui.add(g_meltVal.setup("melt", 0, 0,1));
-    screenGui.add(g_fade.setup("fade", 0.000, 0,0.001));
-    screenGui.add(g_speed.setup("speed", 1, 0,5));
-    screenGui.add(g_offSetX_A.setup("offSetX_A", 0, -WIDTH, WIDTH));
-    screenGui.add(g_offSetX_B.setup("offSetX_B", 0, -WIDTH, WIDTH));
-    screenGui.add(g_screenAlph_A.setup("screenAlph_A", 255, 0, 255));
-    screenGui.add(g_screenAlph_B.setup("screenAlph_B", 255, 0, 255));
-    screenGui.setPosition(20, 120);
-    
-    //-------------------------------ãƒãƒ«ãƒãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ç”¨ã®FBO
-    for (int i=0; i<2; i++) {
-        displayFbo[i].allocate(WIDTH, HEIGHT);
-    }
+//--------------------------------------------------------------ƒvƒƒOƒ‰ƒ€Às‚ÌÅ‰‚Ìˆê“x‚Ì‚İÀs‚³‚ê‚é
+void ofApp::setup() {
+	ofSetBackgroundColor(255);
+	ofEnableAntiAliasing();
+	ofSetFrameRate(30);
+
+	//-------------------------------ƒXƒNƒŠ[ƒ“ƒTƒCƒY“™‚Ì‰Šú‰»
+	WIDTH = 1280;
+	HEIGHT = 1024;
+	currentHEIGHT = ofGetHeight() - 50;
+	wideWIDTH = WIDTH * 2;
+	rollScreen.init(wideWIDTH, HEIGHT);
+
+	//-------------------------------‚¨‰Ô—pƒCƒxƒ“ƒgƒZƒbƒgƒAƒbƒv
+	ofAddListener(Bug::birth, this, &ofApp::bear);
+	ofAddListener(Bug::bloom, this, &ofApp::bloom);
+
+	//-------------------------------A•¨ŠÖŒW‚ÌGUIƒZƒbƒgƒAƒbƒv
+	plantsGui.setup();
+	plantsGui.setName("plants");
+	plantsGui.add(g_lifeSpan.setup("lifeSpan", 450, 100, 2000));
+	plantsGui.add(g_initialRadius.setup("radius", 45, 5, 200));
+	plantsGui.add(g_plantColor.setup("color", ofFloatColor(1), ofFloatColor(0), ofFloatColor(1)));
+	plantsGui.add(g_limit.setup("limit", 500, 0, 2000));
+	plantsGui.setPosition(240, 120);
+	//-------------------------------ƒXƒNƒŠ[ƒ“ŠÖŒW‚ÌGUIƒZƒbƒgƒAƒbƒv
+	screenGui.setup();
+	screenGui.setName("screen");
+	screenGui.add(g_meltVal.setup("melt", 0, 0, 1));
+	screenGui.add(g_fade.setup("fade", 0.000, 0, 0.001));
+	screenGui.add(g_speed.setup("speed", 1, 0, 5));
+	screenGui.add(g_offSetX_A.setup("offSetX_A", 0, -WIDTH, WIDTH));
+	screenGui.add(g_offSetX_B.setup("offSetX_B", 0, -WIDTH, WIDTH));
+	screenGui.add(g_screenAlph_A.setup("screenAlph_A", 255, 0, 255));
+	screenGui.add(g_screenAlph_B.setup("screenAlph_B", 255, 0, 255));
+	screenGui.setPosition(20, 120);
+
+	//-------------------------------ƒ}ƒ‹ƒ`ƒfƒBƒXƒvƒŒƒC—p‚ÌFBO
+	for (int i = 0; i < 2; i++) {
+		displayFbo[i].allocate(WIDTH, HEIGHT);
+	}
+}
+
+//--------------------------------------------------------------–ˆƒtƒŒ[ƒ€Às‚³‚ê‚é
+void ofApp::update() {
+
+	//------------------------screen‚Égui‚Ì’l‚ğ“n‚·
+	rollScreen.g_meltVal = g_meltVal;
+	rollScreen.g_fade = g_fade;
+	rollScreen.g_speed = g_speed;
+
+	//------------------------rollScreen‚É‘‚«‚İ
+	for (int i = 0; i < bugs.size(); i++) {
+		bugs[i].update();
+		pRenderer.addPoint(bugs[i].pos, bugs[i].color, bugs[i].radius);
+		if (bugs[i].age > bugs[i].lifeSpan) {
+			bugs.erase(bugs.begin() + i);
+		}
+	}
+	for (int i = 0; i < flowers.size(); i++) {
+		flowers[i].update();
+		pRenderer.addPoints(flowers[i].vertices, flowers[i].colors, flowers[i].pointSizes);
+		flowers[i].clear();
+		if (flowers[i].age > flowers[i].lifeSpan) {
+			flowers.erase(flowers.begin() + i);
+		}
+	}
+	ofEnableBlendMode(OF_BLENDMODE_ADD);
+	rollScreen.drawIn([&]() {pRenderer.draw(); }); //‚±‚¢‚Â‚Édraw()“ü‚ê‚½‚çƒIƒbƒP[
+	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+	pRenderer.clear(); //’¸“_ƒoƒbƒtƒ@‚ğƒNƒŠƒA
+
+	//------------------------rollScreen‚ğƒAƒbƒvƒf[ƒg
+	rollScreen.update();
+
+}
+
+//--------------------------------------------------------------–ˆƒtƒŒ[ƒ€Às‚³‚ê‚é
+void ofApp::draw() {
+	ofSetColor(255);
+	//-------------------------ƒTƒuƒXƒNƒŠ[ƒ“‚É“n‚·—p‚Ìfbo‚É‘‚«‚İ
+	displayFbo[0].begin();
+	ofPushMatrix();
+	ofTranslate(g_offSetX_A, 0);
+	rollScreen.draw(wideWIDTH, HEIGHT);
+	ofPopMatrix();
+	displayFbo[0].end();
+
+	displayFbo[1].begin();
+	ofPushMatrix();
+	ofTranslate(-WIDTH + g_offSetX_B, 0);
+	rollScreen.draw(wideWIDTH, HEIGHT);
+	ofPopMatrix();
+	displayFbo[1].end();
+
+	//-------------------ƒRƒ“ƒgƒ[ƒ‹ƒEƒCƒ“ƒhƒE‚ÉGUI‘‚«‚İ
+	rollScreen.draw(ofGetWidth(), currentHEIGHT);
+	rollScreen.swapBuffers();
+
+	//-------------------------guiŠÖ˜A
+	plantsGui.draw();
+	screenGui.draw();
+	ofDrawBitmapString("fps : " + ofToString(ofGetFrameRate()), 20, 25);
+	ofDrawBitmapString("bug_size : " + ofToString(bugs.size()) + "   limit : " + ofToString(float(g_limit)), 20, 45);
+	ofDrawBitmapString("key:'c' to clear screen", 20, 65);
+	ofDrawBitmapString("key:'x' to clear bugs and flowers", 20, 85);
+	ofDrawBitmapString("key:'r' to resset offSet", 20, 105);
+}
+
+//-------------------------------------------ƒEƒCƒ“ƒhƒEA‚É•`‰æ‚·‚é‚à‚Ì
+void ofApp::drawDisplay_A(ofEventArgs & args) {
+	ofBackground(0);
+	ofPushStyle();
+	ofSetColor(255, g_screenAlph_A);
+	displayFbo[0].draw(0, 0, ofGetWidth(), ofGetHeight());
+	ofPopStyle();
+}
+
+//-------------------------------------------ƒEƒCƒ“ƒhƒEB‚É•`‰æ‚·‚é‚à‚Ì
+void ofApp::drawDisplay_B(ofEventArgs & args) {
+	ofBackground(0);
+	ofPushStyle();
+	ofSetColor(255, g_screenAlph_B);
+	displayFbo[1].draw(0, 0, ofGetWidth(), ofGetHeight());
+	ofPopStyle();
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
-    
-    //------------------------screenã«guiã®å€¤ã‚’æ¸¡ã™
-    rollScreen.g_meltVal = g_meltVal;
-    rollScreen.g_fade = g_fade;
-    rollScreen.g_speed = g_speed;
-    
-    //------------------------rollScreenã«æ›¸ãè¾¼ã¿
-    for (int i=0; i<bugs.size(); i++) {
-        bugs[i].update();
-        pRenderer.addPoint(bugs[i].pos, bugs[i].color, bugs[i].radius);
-        if (bugs[i].age > bugs[i].lifeSpan){
-            bugs.erase(bugs.begin()+i);
-        }
-    }
-    for (int i=0; i<flowers.size(); i++) {
-        flowers[i].update();
-        pRenderer.addPoints(flowers[i].vertices, flowers[i].colors, flowers[i].pointSizes);
-        flowers[i].clear();
-        if (flowers[i].age > flowers[i].lifeSpan){
-            flowers.erase(flowers.begin()+i);
-        }
-    }
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
-    rollScreen.drawIn( [&](){pRenderer.draw();} ); //ã“ã„ã¤ã«draw()å…¥ã‚ŒãŸã‚‰ã‚ªãƒƒã‚±ãƒ¼
-    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-    pRenderer.clear(); //é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã‚’ã‚¯ãƒªã‚¢
-    
-    //------------------------rollScreenã‚’ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
-    rollScreen.update();
-    
+void ofApp::bear(Bug & _bug) {
+	int limit = g_limit;
+	if (bugs.size() < limit) {
+		bugs.emplace_back();
+		bugs[bugs.size() - 1].inherited(_bug);
+	}
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
-    ofSetColor(255);
-    //-------------------------ã‚µãƒ–ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã«æ¸¡ã™ç”¨ã®fboã«æ›¸ãè¾¼ã¿
-    displayFbo[0].begin();
-        ofPushMatrix();
-        ofTranslate(g_offSetX_A, 0);
-        rollScreen.draw(wideWIDTH, HEIGHT);
-        ofPopMatrix();
-    displayFbo[0].end();
-    
-    displayFbo[1].begin();
-        ofPushMatrix();
-        ofTranslate(-WIDTH + g_offSetX_B, 0);
-        rollScreen.draw(wideWIDTH, HEIGHT);
-        ofPopMatrix();
-    displayFbo[1].end();
-    
-    //-------------------ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«GUIæ›¸ãè¾¼ã¿
-    rollScreen.draw(ofGetWidth(), currentHEIGHT);
-    rollScreen.swapBuffers();
-    
-    //-------------------------guié–¢é€£
-    plantsGui.draw();
-    screenGui.draw();
-    ofDrawBitmapString("fps : " + ofToString(ofGetFrameRate()), 20, 25);
-    ofDrawBitmapString("bug_size : " + ofToString(bugs.size()) + "   limit : " + ofToString(float(g_limit)), 20, 45);
-    ofDrawBitmapString("key:'c' to clear screen", 20, 65);
-    ofDrawBitmapString("key:'x' to clear bugs and flowers", 20, 85);
-    ofDrawBitmapString("key:'r' to resset offSet", 20, 105);
-}
-
-//-------------------------------------------ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦Aã«æç”»ã™ã‚‹ã‚‚ã®
-void ofApp::drawDisplay_A(ofEventArgs & args){
-    ofBackground(0);
-    ofPushStyle();
-    ofSetColor(255, g_screenAlph_A);
-    displayFbo[0].draw(0,0 ,ofGetWidth(),ofGetHeight());
-    ofPopStyle();
-}
-
-//-------------------------------------------ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦Bã«æç”»ã™ã‚‹ã‚‚ã®
-void ofApp::drawDisplay_B(ofEventArgs & args){
-    ofBackground(0);
-    ofPushStyle();
-    ofSetColor(255, g_screenAlph_B);
-    displayFbo[1].draw(0,0, ofGetWidth(),ofGetHeight());
-    ofPopStyle();
+void ofApp::bloom(Bug & _bug) {
+	//_posAndDir contains pos.xy and dir.xy
+	flowers.emplace_back(_bug.pos, _bug.dir);
+	flowers[flowers.size() - 1].lifeSpan = _bug.initialRadius * 1;
+	flowers[flowers.size() - 1].color = _bug.color;
 }
 
 //--------------------------------------------------------------
-void ofApp::bear(Bug & _bug){
-    int limit = g_limit;
-    if (bugs.size() < limit){
-        bugs.emplace_back();
-        bugs[bugs.size()-1].inherited(_bug);
-    }
+void ofApp::keyPressed(int key) {
+	switch (key) {
+	case 'c':
+		rollScreen.clear();
+		break;
+
+	case 'x':
+		bugs.clear();
+		flowers.clear();
+		break;
+
+	case 'r':
+		g_offSetX_A = 0;
+		g_offSetX_B = 0;
+		break;
+
+	default:
+		break;
+	}
+
 }
 
 //--------------------------------------------------------------
-void ofApp::bloom(Bug & _bug){
-    //_posAndDir contains pos.xy and dir.xy
-    flowers.emplace_back(_bug.pos, _bug.dir);
-    flowers[flowers.size()-1].lifeSpan = _bug.initialRadius * 1;//_bug.initialRadius * _bug.initialRadius * 0.01;
-    //flowers[flowers.size()-1].color = ofFloatColor(ofRandom(1),0.5,0.5,1);
-    flowers[flowers.size()-1].color = _bug.color;
+void ofApp::keyReleased(int key) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    switch (key) {
-        case 'c':
-            rollScreen.clear();
-            break;
-            
-        case 'x':
-            bugs.clear();
-            flowers.clear();
-            break;
-            
-        case 'r':
-            g_offSetX_A = 0;
-            g_offSetX_B = 0;
-            break;
-            
-        default:
-            break;
-    }
-    
+void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY) {
+	rollScreen.scrollingX += scrollX;
+
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-    
+void ofApp::mouseMoved(int x, int y) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY){
-    rollScreen.scrollingX += scrollX;
-    
+void ofApp::mouseDragged(int x, int y, int button) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-    
+void ofApp::mousePressed(int x, int y, int button) {
+	glm::vec3 mouse = glm::vec3(x, y, 0);
+	mouse.x *= float(wideWIDTH) / ofGetWidth();
+	mouse.y *= float(HEIGHT) / currentHEIGHT;
+	mouse.x = rollScreen.getScreenPositionX(mouse.x);
+
+	if (button == 0) {
+		glm::vec3 mouse = glm::vec3(x, y, 0);
+		mouse.x *= float(wideWIDTH) / ofGetWidth();
+		mouse.y *= float(HEIGHT) / currentHEIGHT;
+		mouse.x = rollScreen.getScreenPositionX(mouse.x);
+
+		bugs.emplace_back();
+		bugs[bugs.size() - 1].setup(mouse, glm::vec3(0, -1., 0), 0);
+		bugs[bugs.size() - 1].age = 0;
+		bugs[bugs.size() - 1].generation++;
+		bugs[bugs.size() - 1].seed = ofRandom(10000);
+		bugs[bugs.size() - 1].childNum = 0;
+		bugs[bugs.size() - 1].maxChildNum = 3;
+		bugs[bugs.size() - 1].lifeSpan = g_lifeSpan;
+		bugs[bugs.size() - 1].initialRadius = g_initialRadius;
+		
+		ofFloatColor col = g_plantColor;
+		col.setHue(ofWrap(col.getHue() + ofRandom(-0.1, 0.1), 0, 1));
+		bugs[bugs.size() - 1].color = col;
+	}
+
+	if (button == 2) {
+		flowers.emplace_back(mouse, glm::vec3(ofRandom(1), ofRandom(1), 0));
+		flowers[flowers.size() - 1].lifeSpan = g_initialRadius * 2;
+		flowers[flowers.size() - 1].age = 0;
+		ofFloatColor col = g_plantColor;
+		col.setHue(ofWrap(col.getHue() + ofRandom(-0.1, 0.1), 0, 1));
+		flowers[flowers.size() - 1].color = col;
+	}
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-    
+void ofApp::mouseReleased(int x, int y, int button) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-    glm::vec3 mouse = glm::vec3(x, y, 0);
-    mouse.x *= float(wideWIDTH)/ofGetWidth();
-    mouse.y *= float(HEIGHT)/currentHEIGHT;
-    mouse.x = rollScreen.getScreenPositionX(mouse.x);
-    
-    if (button == 0){
-        glm::vec3 mouse = glm::vec3(x, y, 0);
-        mouse.x *= float(wideWIDTH)/ofGetWidth();
-        mouse.y *= float(HEIGHT)/currentHEIGHT;
-        mouse.x = rollScreen.getScreenPositionX(mouse.x);
-        
-        bugs.emplace_back();
-        bugs[bugs.size()-1].setup( mouse, glm::vec3(0,-1.,0), 0 );
-        bugs[bugs.size()-1].age = 0;
-        bugs[bugs.size()-1].generation ++;
-        bugs[bugs.size()-1].seed = ofRandom(10000);
-        bugs[bugs.size()-1].childNum = 0;
-        bugs[bugs.size()-1].maxChildNum = 3;
-        bugs[bugs.size()-1].lifeSpan = g_lifeSpan;
-        bugs[bugs.size()-1].initialRadius = g_initialRadius;
-        /*
-        ofFloatColor col;
-        float l_time = ofGetElapsedTimef() * 0.1;
-        col.r = ofNoise(60, l_time);
-        col.g = ofNoise(310, l_time);
-        col.b = ofNoise(23, l_time);
-         */
-        ofFloatColor col = g_plantColor;
-        col.setHue( ofWrap(col.getHue() + ofRandom(-0.1,0.1), 0, 1) );
-        bugs[bugs.size()-1].color = col;
-    }
-    
-    if (button == 2){
-        flowers.emplace_back(mouse, glm::vec3(ofRandom(1),ofRandom(1),0));
-        flowers[flowers.size()-1].lifeSpan = g_initialRadius*2;
-        flowers[flowers.size()-1].age = 0;
-        ofFloatColor col = g_plantColor;
-        col.setHue( ofWrap(col.getHue() + ofRandom(-0.1,0.1), 0, 1) );
-        flowers[flowers.size()-1].color = col;
-    }
+void ofApp::mouseEntered(int x, int y) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-    
+void ofApp::mouseExited(int x, int y) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-    
+void ofApp::windowResized(int w, int h) {
+	currentHEIGHT = ofGetHeight() - 50;
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-    
+void ofApp::gotMessage(ofMessage msg) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-    currentHEIGHT = ofGetHeight() - 50;
-    
-}
+void ofApp::dragEvent(ofDragInfo dragInfo) {
 
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-    
 }
