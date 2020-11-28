@@ -1,7 +1,6 @@
 # garden_melt
  
- osx用です。
- windows版はwinブランチにあります
+windows版です
  
  ↓youtubeです。  
  
